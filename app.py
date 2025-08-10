@@ -280,7 +280,7 @@ Example of VALID output:
 # -------------------------------
 def main():
     st.set_page_config(page_title="EarthMinds Lens", layout="wide")
-    st.title("🚀 EarthMinds Lens Object Detection (up to 5 images)")
+    st.title("👁️ EarthMinds Lens Object Detection")
 
     # Load categories only when needed
     object_categories = load_object_categories()
@@ -309,7 +309,7 @@ def main():
 
     # Main UI
     uploaded_files = st.file_uploader(
-        "Upload 1–5 images", 
+        "📷 Upload Images", 
         type=["jpg", "jpeg", "png", "webp"], 
         accept_multiple_files=True
     )
@@ -323,7 +323,7 @@ def main():
     custom_criteria = st.text_input("Additional criteria (optional)", 
                                   placeholder="e.g., 'only red cars' or 'facing left'")
 
-    if uploaded_files and st.button("Detect Objects"):
+    if uploaded_files and st.button("🔍 earthminds lens"):
         if len(uploaded_files) > 5:
             st.error("Please upload at most 5 images.")
         else:
