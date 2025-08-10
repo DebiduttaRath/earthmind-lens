@@ -1,0 +1,13 @@
+# Core dependencies
+streamlit
+python-dotenv
+pydantic
+groq
+# Use lighter versions of heavy packages
+numpy==1.23.5
+opencv-python-headless==4.7.0.72
+pandas
+
+# Optional - included for completeness
+# sqlite3 is part of Python standard library
+# datetime, pathlib, re, typing, functools, io, os, base64, hashlib, json are also standard library
