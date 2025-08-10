@@ -323,7 +323,7 @@ def main():
     custom_criteria = st.text_input("Additional criteria (optional)", 
                                   placeholder="e.g., 'only red cars' or 'facing left'")
 
-    if uploaded_files and st.button("🔍 earthminds lens"):
+    if uploaded_files and st.button("earthminds lens"):
         if len(uploaded_files) > 5:
             st.error("Please upload at most 5 images.")
         else:
