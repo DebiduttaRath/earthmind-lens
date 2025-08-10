@@ -131,7 +131,7 @@ def compress_to_under_limit(image_bytes: bytes, max_bytes: int = MAX_BASE64_BYTE
     return buf.tobytes() if success else image_bytes
 
 @st.cache_data(max_entries=20)
-def draw_boxes_on_bytes(image_bytes: bytes, detections: List[Detection], 
+def draw_boxes_on_bytes(image_bytes: bytes, _detections: List[Detection], 
                        per_label_thresholds: Dict[str, float], global_threshold: float) -> bytes:
     """Draw bounding boxes on image bytes with caching."""
     arr = np.frombuffer(image_bytes, np.uint8)
