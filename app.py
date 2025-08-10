@@ -53,8 +53,8 @@ def load_object_categories():
 
 @st.cache_resource
 def get_db_connection():
-    """Initialize SQLite database with caching"""
-    con = sqlite3.connect(SQLITE_PATH)
+    """Initialize SQLite database with thread-local storage"""
+    con = sqlite3.connect(SQLITE_PATH, check_same_thread=False)
     cur = con.cursor()
     cur.execute("""
     CREATE TABLE IF NOT EXISTS detections (
