@@ -336,7 +336,7 @@ def main():
                     try:
                         rows = []
                         for imgdet in results:
-                            for d in imgdet.detections:
+                            for d in imgdet._detections:
                                 rows.append({
                                     "timestamp": datetime.utcnow().isoformat(),
                                     "image_filename": imgdet.filename,
@@ -376,7 +376,7 @@ def main():
                         
                         with col2:
                             try:
-                                annotated = draw_boxes_on_bytes(raw_bytes, res.detections, 
+                                annotated = draw_boxes_on_bytes(raw_bytes, res._detections, 
                                                               per_label_thresholds, global_threshold)
                                 st.image(annotated, caption=f"Annotated: {res.filename}", use_container_width=True)
                             except Exception as draw_e:
