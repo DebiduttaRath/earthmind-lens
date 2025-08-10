@@ -140,7 +140,7 @@ def draw_boxes_on_bytes(image_bytes: bytes, _detections: List[Detection],
         raise RuntimeError("Failed to decode image bytes for drawing")
 
     h, w = img.shape[:2]
-    for det in detections:
+    for det in _detections:
         label = det.label
         thresh = per_label_thresholds.get(label, global_threshold)
         if det.confidence < thresh:
@@ -355,7 +355,7 @@ def main():
                             if save_sqlite:
                                 con = get_db_connection()
                                 df.to_sql("detections", con, if_exists="append", index=False)
-                                con.close()
+                                con.commit()
                         
                         st.success("Results saved successfully")
                     except Exception as e:
